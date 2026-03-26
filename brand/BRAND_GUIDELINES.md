@@ -1,368 +1,311 @@
-# AcademicFlow Slide Design System
+# AcademicFlow Brand Guidelines
 
-## Brand Guidelines & Design Tokens
+> Authoritative design system derived from [academicflow.studio](https://academicflow.studio). All AcademicFlow surfaces (website, add-in, docs, presentations) should follow these guidelines.
 
 ---
 
-## 1. Colors
+## 1. Brand Identity
 
-### Primary Colors
-| Name | HEX | Usage |
-|------|-----|-------|
-| **Brand Black** | `#111111` | Primary text, headings, default badges |
-| **Brand Blue** | `#5551FF` | Accent color, interactive elements, highlights |
-| **Brand Red** | `#FF7262` | Alerts, problems, input indicators |
+**Product name:** AcademicFlow (one word, camelCase capital F)
+**Tagline:** Intelligente Forschung. Souveräne Daten.
+**Description:** Die erste KI-Schreibassistenz fur den DACH-Raum.
+**Language:** German (de-DE) primary, English secondary.
+**Tone:** Professional, academic, trustworthy, privacy-conscious.
 
-### Neutral Colors
-| Name | HEX | Usage |
-|------|-----|-------|
-| **White** | `#FFFFFF` | Slide background |
-| **Gray 50** | `#F9FAFB` | Light backgrounds, cards |
-| **Gray 100** | `#F3F4F6` | Borders, dividers |
-| **Gray 200** | `#E5E7EB` | Subtle borders |
-| **Gray 400** | `#9CA3AF` | Muted text |
-| **Gray 500** | `#6B7280` | Subtitles, secondary text |
-| **Background Dark** | `#222222` | Viewer/presentation background |
+---
 
-### Tailwind Config
-```javascript
-colors: {
-    'brand-black': '#111111',
-    'brand-blue': '#5551FF',
-    'brand-red': '#FF7262',
-    'brand-gray': '#F3F4F6',
-    'brand-bg': '#FFFFFF',
+## 2. Logo
+
+| Variant | File | Use |
+|---------|------|-----|
+| Source vector | `logo.svg` | Master file, web |
+| High-res | `logo-1024.png` | Print, presentations |
+| Standard | `logo-500.png` | GitHub avatar, social |
+| Small | `logo-200.png` | Favicons, thumbnails |
+
+**Sizing:** Navbar: 36x36px. Footer: 32x32px. Minimum: 24x24px.
+**Clear space:** Minimum half the logo width on all sides.
+**Logo text:** Set in Geist, `font-bold tracking-tight text-slate-900`. Always next to the logo mark, never stacked.
+
+---
+
+## 3. Colors
+
+### Primary
+
+| Name | Hex | Tailwind | Usage |
+|------|-----|----------|-------|
+| Blue | `#3b82f6` | `blue-600` | Primary actions, CTAs, active states, links |
+| Blue Dark | `#1e40af` | `blue-700` | Hover states on primary buttons |
+| Blue Light | `#eff6ff` | `blue-50` | Highlight backgrounds, feature cards, icon containers |
+
+### Neutrals
+
+| Name | Hex | Tailwind | Usage |
+|------|-----|----------|-------|
+| Foreground | `#0f172a` | `slate-900` | Headings, primary text |
+| Body text | `#475569` | `slate-600` | Secondary text, descriptions |
+| Muted | `#94a3b8` | `slate-400` | Timestamps, metadata, footer text |
+| Border | `#e2e8f0` | `slate-200` | Card borders, dividers |
+| Light border | `#f1f5f9` | `slate-100` | Section dividers, subtle lines |
+| Background | `#FDFDFD` | custom | Page background |
+| Surface | `#ffffff` | `white` | Cards, navbar, inputs |
+| Surface alt | `#f8fafc` | `slate-50` | Alternate section backgrounds |
+
+### Semantic
+
+| Name | Hex | Tailwind | Usage |
+|------|-----|----------|-------|
+| Success | `#059669` | `emerald-600` | Compliance, verified states |
+| Warning | `#d97706` | `amber-600` | Announcements, caution |
+| Error | `#dc2626` | `red-600` | Errors, fabrication alerts |
+| Research | `#9333ea` | `purple-600` | Research category badges |
+
+Each semantic color uses a `*-50` background with `*-100` border for badge/card containers.
+
+### Text selection
+
+```css
+::selection {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1e3a8a;            /* blue-900 */
 }
 ```
 
 ---
 
-## 2. Typography
+## 4. Typography
 
-### Font Family
-**Inter** - Used for all text elements
+### Font family
+
+**Geist** (sans-serif) for all text. **Geist Mono** for code. Both loaded from Google Fonts, latin subset.
+
 ```css
-font-family: 'Inter', sans-serif;
+--font-geist-sans: 'Geist', sans-serif;
+--font-geist-mono: 'Geist Mono', monospace;
 ```
 
-### Type Scale
-| Element | Size | Weight | Class |
-|---------|------|--------|-------|
-| **H1 (Title)** | 48px (3rem) | 800 (extrabold) | `text-5xl font-extrabold` |
-| **H2 (Card Title)** | 24px (1.5rem) | 700 (bold) | `text-2xl font-bold` |
-| **H3 (Section)** | 18px (1.125rem) | 700 (bold) | `text-lg font-bold` |
-| **Subtitle** | 20px (1.25rem) | 500 (medium) | `text-xl font-medium` |
-| **Body** | 14px | 400 (normal) | `text-sm` |
-| **Small** | 12px | 400-600 | `text-xs` |
-| **Badge** | 11px | 700 (bold) | `text-[11px] font-bold` |
-| **Micro** | 10px | 700 (bold) | `text-[10px] font-bold` |
+### Type scale
 
-### Letter Spacing
-- H1: `-0.03em` (`letter-spacing: -0.03em`)
-- H2: `-0.02em` (`letter-spacing: -0.02em`)
-- Badges: `tracking-wider` (0.05em)
-- Labels: `tracking-widest` (0.1em)
+| Element | Size | Weight | Tailwind | Tracking |
+|---------|------|--------|----------|----------|
+| Hero headline | 4.5rem (72px) | 800 | `text-7xl font-extrabold` | `tracking-tight` |
+| Page heading | 3rem (48px) | 800 | `text-5xl font-extrabold` | `tracking-tight` |
+| Section heading | 2.25rem (36px) | 800 | `text-4xl font-extrabold` | `tracking-tight` |
+| Card heading | 1.5rem (24px) | 700 | `text-2xl font-bold` | default |
+| Large body | 1.25rem (20px) | 500 | `text-xl font-medium` | default |
+| Body | 1rem (16px) | 400 | `text-base` | default |
+| Small | 0.875rem (14px) | 600 | `text-sm font-semibold` | default |
+| Badge | 10px | 700 | `text-[10px] font-bold uppercase` | `tracking-widest` |
+
+### Line height
+
+- Headlines: `leading-tight` or `leading-[1.1]`
+- Body: `leading-relaxed`
 
 ---
 
-## 3. Slide Layout
+## 5. Spacing
 
-### Container
-```css
-.slide-container {
-    width: 1280px;
-    height: 720px;           /* 16:9 aspect ratio */
-    padding: 48px 64px;      /* Fixed padding */
-    background-color: #FFFFFF;
-    overflow: hidden;
-}
-```
+All spacing follows Tailwind's 4px base scale.
 
-### Standard Header Structure
-```html
-<!-- HEADER -->
-<div class="flex justify-between items-start mb-8 shrink-0">
-    <div>
-        <div class="inline-block bg-brand-black text-white text-[11px] font-bold px-3 py-1 rounded mb-3 uppercase tracking-wider">
-            BADGE TEXT
-        </div>
-        <h1 class="text-5xl font-extrabold text-brand-black mb-1">
-            Slide Title
-        </h1>
-        <p class="text-xl text-gray-500 font-medium">
-            Subtitle or description text
-        </p>
-    </div>
-
-    <!-- Optional: Right-side element -->
-</div>
-```
-
-### Spacing System
 | Token | Value | Usage |
 |-------|-------|-------|
-| `mb-1` | 4px | Between title and subtitle |
-| `mb-3` | 12px | Between badge and title |
-| `mb-8` | 32px | Header to content |
-| `gap-8` | 32px | Between columns/cards |
-| `gap-12` | 48px | Large content gaps |
-| `p-6` | 24px | Card padding |
+| Section padding | `py-24 px-6` | Standard section vertical/horizontal |
+| Hero top | `pt-32` | Below fixed navbar |
+| Card padding | `p-6` or `p-8` | Interior card spacing |
+| Component gap | `gap-4` to `gap-8` | Between sibling elements |
+| Section gap | `gap-12` to `gap-20` | Between major blocks |
+| Max width | `max-w-7xl` (1280px) | Container constraint |
+| Article width | `max-w-4xl` (896px) | Long-form content |
 
 ---
 
-## 4. Components
+## 6. Components
 
-### Badge
-Standard badge for slide categorization:
-```html
-<div class="inline-block bg-brand-black text-white text-[11px] font-bold px-3 py-1 rounded mb-3 uppercase tracking-wider">
-    BADGE TEXT
-</div>
+### Buttons
+
+**Primary CTA**
+```
+bg-blue-600 hover:bg-blue-700 text-white font-bold
+px-8 py-4 rounded-2xl shadow-xl shadow-blue-200
 ```
 
-**Badge Color Variants:**
-- Default: `bg-brand-black text-white`
-- Blue: `bg-brand-blue text-white`
-- Red: `bg-brand-red text-white`
-- Light: `bg-gray-100 text-brand-black border border-gray-200`
-
-### Card
-```html
-<div class="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-    <!-- Card content -->
-</div>
+**Secondary**
+```
+bg-white border border-slate-200 hover:bg-slate-50
+text-slate-900 font-bold px-8 py-4 rounded-2xl
 ```
 
-**Card with Color Accent:**
-```html
-<div class="relative bg-white rounded-xl border border-gray-200 shadow-sm">
-    <div class="h-1.5 w-full bg-brand-blue rounded-t-xl"></div>
-    <div class="p-6">
-        <!-- Card content -->
-    </div>
-</div>
+**Navbar**
+```
+bg-slate-900 hover:bg-blue-600 text-white font-bold
+px-5 py-2.5 rounded-full text-sm
 ```
 
-### Pills / Tags
-```html
-<span class="bg-blue-50 text-brand-blue font-bold text-xs px-2 py-1 rounded">
-    Label
-</span>
+**Link**
+```
+text-blue-600 font-bold inline-flex items-center gap-3
+```
+Pair with `ArrowRight` icon. On hover: `gap-4` (icon shifts right).
+
+### Cards
+
+**Standard**
+```
+bg-white p-6 rounded-2xl border border-slate-200
+shadow-sm hover:shadow-md transition-shadow
 ```
 
-### Stat Number (Large)
-```html
-<div class="text-8xl font-extrabold text-brand-black">
-    900
-</div>
-<div class="text-xl text-gray-500 font-medium">
-    Description
-</div>
+**Feature highlight**
+```
+bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100
 ```
 
----
-
-## 5. Slide Types
-
-### 1. Cover/Title Slide
-- Centered layout
-- Large title with decorative badges
-- No header badge required
-
-### 2. Statement Slide
-- Single large number or text
-- Minimal elements
-- High impact
-
-### 3. Content Slide (Standard)
-- Header with badge + title + subtitle
-- Content area below
-- Consistent header position
-
-### 4. Grid/Card Slide
-- Header (standard)
-- 2-4 column grid of cards
-- Cards with color accents
-
-### 5. Timeline Slide
-- Header (standard)
-- Horizontal timeline visualization
-- Phase markers
-
----
-
-## 6. Visual Elements
-
-### Shadows
-```css
-/* Card shadow */
-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-            0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-/* Slide shadow (in viewer) */
-box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+**Icon container** (inside cards)
+```
+w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center
+text-blue-600
 ```
 
-### Border Radius
-| Size | Value | Usage |
-|------|-------|-------|
-| `rounded` | 4px | Badges, small elements |
-| `rounded-lg` | 8px | Buttons, inputs |
-| `rounded-xl` | 12px | Cards, containers |
-| `rounded-full` | 9999px | Pills, avatars |
+### Badges
 
-### Dividers
-```html
-<div class="w-full h-px bg-gray-100"></div>
+```
+text-[10px] font-bold uppercase tracking-widest
+px-2.5 py-1 rounded-full border
+```
+
+Color by category:
+| Category | Background | Text | Border |
+|----------|-----------|------|--------|
+| Default | `blue-50` | `blue-700` | `blue-100` |
+| Feature | `emerald-50` | `emerald-700` | `emerald-100` |
+| Research | `purple-50` | `purple-700` | `purple-100` |
+| Announcement | `amber-50` | `amber-700` | `amber-100` |
+| Error/Alert | `red-50` | `red-700` | `red-100` |
+
+### Navigation
+
+```
+fixed top-0 w-full z-50
+bg-white/80 backdrop-blur-md border-b border-slate-100
+```
+Links: `text-sm font-semibold text-slate-500 hover:text-blue-600`
+
+### Footer
+
+```
+bg-white border-t border-slate-100 py-20 px-6
+```
+Text: `text-slate-400 text-sm font-medium`
+Links: `hover:text-blue-600 transition-colors`
+
+### Forms
+
+```
+Input:  w-full px-4 py-3 rounded-xl border border-slate-200
+Focus:  focus:border-blue-500 focus:ring-2 focus:ring-blue-200
+Label:  text-sm font-semibold text-slate-700 mb-2
 ```
 
 ---
 
 ## 7. Icons
 
-**Library:** Phosphor Icons
-```html
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
-```
+**Library:** Lucide React
 
-**Usage:**
-```html
-<i class="ph-bold ph-arrow-right"></i>
-<i class="ph-fill ph-check-circle"></i>
-```
+**Standard sizes:** 16px (inline), 20px (buttons), 24px (cards), 48px (feature hero)
 
-**Styles:** `ph-thin`, `ph-light`, `ph-regular`, `ph-bold`, `ph-fill`, `ph-duotone`
+**Core icon set:**
 
----
-
-## 8. Required Imports
-
-```html
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Icons -->
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-<!-- Tailwind Config -->
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    'brand-black': '#111111',
-                    'brand-blue': '#5551FF',
-                    'brand-red': '#FF7262',
-                    'brand-gray': '#F3F4F6',
-                    'brand-bg': '#FFFFFF',
-                },
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                }
-            }
-        }
-    }
-</script>
-```
+| Icon | Usage |
+|------|-------|
+| `Search` | Source discovery |
+| `ShieldCheck` | Verification, compliance |
+| `Layout` | Word integration |
+| `Lock` | Privacy, Sperrvermerk |
+| `Database` | Data, Azure |
+| `Globe` | DACH market |
+| `ArrowRight` | CTAs, navigation |
+| `CheckCircle2` | Success, completed |
+| `AlertCircle` | Warnings, errors |
+| `FileText` | Documents, whitepaper |
+| `Zap` | Speed, AI power |
+| `Cpu` | Technology, ML |
 
 ---
 
-## 9. Slide Template
+## 8. Border radius
 
-```html
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-black': '#111111',
-                        'brand-blue': '#5551FF',
-                        'brand-red': '#FF7262',
-                        'brand-gray': '#F3F4F6',
-                        'brand-bg': '#FFFFFF',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #222;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .slide-container {
-            width: 1280px;
-            height: 720px;
-            background-color: #FFFFFF;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            padding: 48px 64px;
-            box-sizing: border-box;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-    </style>
-</head>
-<body>
-    <div class="slide-container">
-
-        <!-- HEADER -->
-        <div class="flex justify-between items-start mb-8 shrink-0">
-            <div>
-                <div class="inline-block bg-brand-black text-white text-[11px] font-bold px-3 py-1 rounded mb-3 uppercase tracking-wider">Badge</div>
-                <h1 class="text-5xl font-extrabold text-brand-black mb-1">Slide Title</h1>
-                <p class="text-xl text-gray-500 font-medium">Subtitle goes here.</p>
-            </div>
-        </div>
-
-        <!-- CONTENT -->
-        <div class="flex-grow">
-            <!-- Your content here -->
-        </div>
-
-    </div>
-</body>
-</html>
-```
+| Token | Value | Usage |
+|-------|-------|-------|
+| `rounded-xl` | 12px | Inputs, icon containers |
+| `rounded-2xl` | 16px | Cards, buttons |
+| `rounded-3xl` | 24px | Large cards, compliance section |
+| `rounded-[2.5rem]` | 40px | Feature highlight panels |
+| `rounded-full` | pill | Badges, navbar CTA |
 
 ---
 
-## 10. Do's and Don'ts
+## 9. Shadows
 
-### Do's
-- Keep badge text short (1-2 words)
-- Use consistent header structure across content slides
-- Maintain 48px/64px padding
-- Use brand colors consistently
-- Keep text concise and scannable
+| Level | Class | Usage |
+|-------|-------|-------|
+| Subtle | `shadow-sm` | Cards at rest |
+| Medium | `shadow-md` | Navbar, hover state |
+| Elevated | `shadow-lg` | Card hover, modals |
+| Prominent | `shadow-xl shadow-blue-200` | Primary CTA |
 
-### Don'ts
-- Don't use more than 3 colors per slide
-- Don't vary badge positions between content slides
-- Don't use fonts other than Inter
-- Don't overcrowd slides with text
-- Don't use shadows on text
+---
+
+## 10. Motion
+
+**Duration:** 500ms default, 700ms for longer sequences.
+
+**Entrance animations:**
+```css
+@keyframes slide-in-from-bottom-10 {
+  from { transform: translateY(2.5rem); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+```
+
+**Hover transitions:** `transition-colors`, `transition-shadow`, `transition-all`
+**Hover patterns:** Shadow elevation, border color shift to blue-200, icon translate-x.
+
+---
+
+## 11. Responsive breakpoints
+
+| Breakpoint | Width | Behaviour |
+|------------|-------|-----------|
+| Base | <640px | Single column, stacked layout |
+| `sm` | 640px | Minor adjustments |
+| `md` | 768px | Multi-column grids, navbar links visible |
+| `lg` | 1024px | Full layouts |
+
+Design mobile-first. Enhance with `md:` and `lg:` prefixes.
+
+---
+
+## 12. Do's and Don'ts
+
+**Do:**
+- Use `blue-600` as the single accent color across all surfaces
+- Keep text in `slate-900` (headings) and `slate-600` (body)
+- Use Geist everywhere, including presentations
+- Maintain generous whitespace (`py-24` section padding)
+- Use rounded-2xl for cards and buttons consistently
+- Pair icons with text labels
+
+**Don't:**
+- Use colors outside this palette (no brand-black `#111111`, no brand-red `#FF7262` from the old slide system)
+- Mix font families (no Inter, no system fonts)
+- Use shadows on text
+- Overcrowd sections with more than 4 cards per row
+- Use rounded-lg or smaller on cards (reserved for inputs/icons)
