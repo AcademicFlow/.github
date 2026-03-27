@@ -7,12 +7,12 @@
 <h1 align="center">AcademicFlow</h1>
 
 <p align="center">
-  <strong>Intelligente Forschung. Souveräne Daten.</strong>
+  <em>Wissenschaft verdient bessere Werkzeuge.</em>
 </p>
 
 <p align="center">
-  Die erste KI-Schreibassistenz für den DACH-Raum.<br/>
-  Zitationen prüfen. Quellen finden. Formatierung sichern — direkt in Word.
+  Die Research-Engine für Microsoft Word.<br/>
+  Quellen finden, verifizieren und zitieren — direkt beim Schreiben.
 </p>
 
 <p align="center">
