@@ -18,3 +18,22 @@
 <p align="center">
   <a href="https://academicflow.studio"><strong>academicflow.studio &rarr;</strong></a>
 </p>
+
+---
+
+### Was AcademicFlow macht
+
+Studierende verbringen Stunden damit, Quellen manuell zu prüfen. AcademicFlow automatisiert diesen Prozess — als Add-in direkt in Microsoft Word.
+
+- **Quellen finden** — Relevante Literatur entdecken, während du schreibst
+- **Zitate verifizieren** — Prüfung gegen CrossRef, OpenAlex und weitere Datenbanken
+- **Formatierung sichern** — Zitierstil, Schriftarten und Struktur kontrollieren
+- **Daten schützen** — Thesis-Text bleibt lokal, KI-Inferenz auf dem Gerät
+
+### Für wen
+
+Für Studierende an deutschen Hochschulen — gebaut von 21 IT-Studierenden der DHBW Stuttgart.
+
+<p align="center">
+  <sub>DSGVO-konform &middot; Deutsche Zitierweise &middot; Privacy-first</sub>
+</p>
